@@ -48,21 +48,6 @@
         .MuiChip-label.MuiChip-labelSm.chaindesk-chatbox-standard-tymi7a{
             display: none !important;
         }
-	#quick-questions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            padding: 10px;
-        }
-        .quick-question {
-            background-color: #e0d7ff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 16px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
     </style>
 
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
@@ -76,6 +61,11 @@
 			'Hola, soy MareBot, tú asistente virtual!',
 			'En que puedo ayudarte?'
 		],
+		                quickReplies: [
+                    { text: '¿Qué servicios ofrecen?' },
+                    { text: '¿Cómo puede impactar la IA en mi empresa?' },
+                    { text: '¿Tienen soporte técnico?' }
+                ],
 		i18n: {
 			en: {
 				title: 'Tu asistente virtual',
@@ -88,24 +78,8 @@
 	});
 </script>
 
-    <div id="quick-questions">
-        <button class="quick-question">¿Qué servicios ofrecen?</button>
-        <button class="quick-question">¿Cómo puede impactar la IA en mi empresa?</button>
-    </div>
-
     <chaindesk-chatbox-standard style="width: 100%; height: 750px"></chaindesk-chatbox-standard>
 
-    <script>
-        document.querySelectorAll('.quick-question').forEach(button => {
-            button.addEventListener('click', function() {
-                const chatInput = document.querySelector('chaindesk-chatbox-standard textarea');
-                if (chatInput) {
-                    chatInput.value = this.innerText;
-                    chatInput.focus();
-                }
-            });
-        });
-    </script>
 </head>
 <body>
     <nav class="navbar">
