@@ -49,6 +49,24 @@
         .MuiChip-label.MuiChip-labelSm.chaindesk-chatbox-standard-tymi7a{
             display: none !important;
         }
+
+
+	.chat-body {
+    	    display: flex;
+    	    gap: 10px;
+            overflow-x: auto; /* Activa el scroll horizontal si es necesario */
+            white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+            padding: 10px;
+	}	
+
+	.pregunta {
+            background-color: #f5eaff;
+            color: #4b0082;
+            padding: 10px 15px;
+            border-radius: 15px;
+            flex-shrink: 0; /* Evita que los elementos se reduzcan */
+	}
+
     </style>
 
 <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
@@ -77,16 +95,26 @@
 			},
 		},
 	});
-document.addEventListener("DOMContentLoaded", function () {
+
+
+	document.addEventListener("DOMContentLoaded", function () {
     const chatBody = document.querySelector(".chat-body");
 
-    if (chatBody) { // Verificamos que el elemento exista
-        const nuevoMensaje = document.createElement("p");
-        nuevoMensaje.textContent = "Este es un nuevo mensaje en el chat.";
-        
-        chatBody.appendChild(nuevoMensaje);
+    if (chatBody) {
+        const preguntas = [
+            "¿Qué servicios ofrecen?",
+            "¿Cómo puede impactar la IA en mi empresa?"
+        ];
+
+        preguntas.forEach(texto => {
+            const preguntaElemento = document.createElement("div");
+            preguntaElemento.classList.add("pregunta");
+            preguntaElemento.textContent = texto;
+            chatBody.appendChild(preguntaElemento);
+        });
     }
 });
+
 
 
 </script>
