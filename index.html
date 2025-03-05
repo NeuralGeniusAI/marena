@@ -77,12 +77,17 @@
 			},
 		},
 	});
-	document.addEventListener("DOMContentLoaded", function () {
-    		const nuevoElemento = document.createElement("p");
-    		nuevoElemento.textContent = "Este texto se agregó después de que se cargó el DOM.";
-    
-    		document.body.appendChild(nuevoElemento);
-	});
+document.addEventListener("DOMContentLoaded", function () {
+    const chatBody = document.querySelector(".chat-body");
+
+    if (chatBody) { // Verificamos que el elemento exista
+        const nuevoMensaje = document.createElement("p");
+        nuevoMensaje.textContent = "Este es un nuevo mensaje en el chat.";
+        
+        chatBody.appendChild(nuevoMensaje);
+    }
+});
+
 
 </script>
 
