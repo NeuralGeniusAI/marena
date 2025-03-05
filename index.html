@@ -77,6 +77,13 @@
 			},
 		},
 	});
+	document.addEventListener("DOMContentLoaded", function () {
+    		const nuevoElemento = document.createElement("p");
+    		nuevoElemento.textContent = "Este texto se agregó después de que se cargó el DOM.";
+    
+    		document.body.appendChild(nuevoElemento);
+	});
+
 </script>
 
 
